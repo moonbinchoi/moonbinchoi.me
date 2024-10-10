@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: create}"></head>
+<body class="bg-gray-100 font-sans">
+<div class="container w-full mt-8 mx-auto pt-20">
+    <input type="text" id="title"
+           class="h1 w-full mb-0 leading-6 bg-transparent border-transparent border-2 focus:outline-none text-3xl font-bold"
+           placeholder="제목을 입력하세요">
+
+    <div class="mt-8" data-text-editor="editor">
+        <div th:replace="~{fragments/editor-toolbar :: editor-toolbar}"></div>
+        <div class="mt-2 px-3 py-2 border border-gray-300 rounded" data-editor></div>
+        <form id="editor-form" action="/create" th:action="@{/create}" method="POST" th:object="${request}" class="pt-2 flex">
+            <input type="hidden" id="form-title" name="title" th:field="*{title}"/>
+            <input type="hidden" id="form-content" name="content" th:field="*{content}"/>
+            <input type="hidden" id="form-author" name="author" th:field="*{author}"/>
+            <button type="button" id="editor-submit-button" class="px-2 py-1 rounded-lg text-gray-900 bg-white ml-auto">저장</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

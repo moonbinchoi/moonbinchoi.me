@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head}"></head>
+
+<body class="bg-gray-100 text-gray-800 font-sans leading-normal">
+<nav th:replace="~{fragments/nav :: nav-main}"></nav>
+
+<!-- Main Content -->
+<main class="container mx-auto mt-10 px-6 pt-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" th:object="${posts}">
+
+        <!-- Blog Post -->
+        <a th:each="post : ${posts}" th:href="${post.getId()}">
+            <article class="bg-white rounded-lg border border-gray-200 p-6 h-full shadow-sm hover:shadow-md transition-shadow duration-300">
+                <h2 th:text="${post.title}" class="text-xl font-semibold text-gray-900">Creating a Minimal Blog with
+                    Tailwind CSS</h2>
+                <p th:text="${post.content}" class="text-gray-600 mt-2">A step-by-step guide on
+                    building a minimalist blog using Tailwind CSS, focusing on simplicity and elegance.</p>
+                <div class="flex items-center mt-4">
+                    <img class="w-10 h-10 rounded-full mr-3" src="https://via.placeholder.com/40" alt="Author">
+                    <div class="text-sm">
+                        <p th:text="${post.author}" class="text-gray-900 font-semibold">Jane Doe</p>
+                        <p th:text="${#temporals.format(post.created, 'yyyy년 MM월 dd일')}" class="text-gray-500">August 20,
+                            2023</p>
+                    </div>
+                </div>
+            </article>
+        </a>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-white border-t border-gray-200 mt-12">
+    <div class="container mx-auto py-6 px-6 text-center text-gray-600">
+        &copy; 2023 My Blog. All rights reserved.
+    </div>
+</footer>
+
+</body>
+</html>

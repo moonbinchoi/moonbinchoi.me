@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="common_header(links)">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>moonbinchoi.me</title>
+    <meta name="author" content="Moonbin Choi" />
+    <meta name="description" content="Personal blog made by Moonbin Choi" />
+    <meta name="keywords" content="blog" />
+
+    <th:block th:replace="${links}" />
+
+    <script th:src="@{/dist/navbar.bundle.js}" defer></script>
+    <!-- 나중에 바꿀 것 -->
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com" rel="stylesheet"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+            overflow-y: scroll;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background-color: #4dc0b5;
+            z-index: 99;
+            transition: width 0.1s ease-out;
+        }
+    </style>
+</head>
+
+
+<head th:fragment="create">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>moonbinchoi.me</title>
+    <meta name="author" content="Moonbin Choi" />
+    <meta name="description" content="Personal blog made by Moonbin Choi" />
+    <meta name="keywords" content="blog" />
+
+    <script th:src="@{/dist/editor.bundle.js}" defer></script>
+    <script th:src="@{/dist/vendor.bundle.js}" defer></script>
+
+    <!-- 나중에 바꿀 것 -->
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com" rel="stylesheet"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+</html>
